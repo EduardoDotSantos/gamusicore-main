@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GmusiCore</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/x-icon" href="images/Favicon.ico" />
+
+</head>
+<body>
+  <header>
+    <div id="texto">
+      <h1>Gamusicore</h1>
+      <div>
+        <button id="increase-font">Aumentar Fonte</button>
+        <button id="decrease-font">Diminuir Fonte</button>
+      </div>
+    </div>
+  </header>
+  
+  <nav class="pesquisa">
+    <a href="index.html" class="pesquisa" id="current">
+      <li class="butao">
+        Página Inicial
+      </li>
+    </a>
+    <br/>
+    <a href="./galeria.html" class="pesquisa" rel="next">
+      <li class="butao">
+        Galeria
+      </li>
+    </a>
+    <br />
+    <a href="./avaliação.html" class="pesquisa">
+      <li class="butao">
+        Cadastre-se
+      </li>
+    </a>
+  </nav>
+  <h2 style="color: #ffffff; font-family: Arial; text-align: center;">Fala gamer!</h2><br/>
+  <p>Ta afim de curtir as musicas do seu jogo favorito?
+    Então veio ao lugar certo!
+  </p>
+  <p>
+    Seja bem vindo ao <strong>Gamusicore</strong>, o coração das musicas OST.
+  </p>
+  <main>
+    <br />
+    <br />
+    <p style="text-align: left;"> Abaixo estão as listas de todos os estilos de jogos que você poderá encontrar em nosso
+      site.
+      <br /> Caso já seja um usuário frequente, pode ver as suas ultimas ouvidas na galeria e agradeçeriamos uma
+      avaliação honesta sobre nosso site para melhorarmos.
+    </p>
+    <div class="container">
+      <ul class="list">
+        <li>
+          <h1>Sobrevivência</h1>
+        </li>
+        <li>Minecraft</li>
+        <li>Ark survival Evolved</li>
+        <li>Dont Starve</li>
+        <h2>Ver mais...</h2>
+      </ul>
+      <ul class="list">
+        <li>
+          <h1>Roguelike</h1>
+        </li>
+        <li>Dead Cells</li>
+        <li>The Binding of Isaac</li>
+        <li>SIFU</li>
+        <h2>Ver mais...</h2>
+      </ul>
+      <ul class="list">
+        <li>
+          <h1>MMORPG</h1>
+        </li>
+        <li>Albion Online</li>
+        <li>World of Warcraft</li>
+        <li>Lost ark</li>
+        <h2>Ver mais...</h2>
+      </ul>
+      </ul>
+    </div>
+    <br />
+    <div class="container">
+      <ul class="list">
+        <li>
+          <h1>Sobrevivência</h1>
+        </li>
+        <li>Minecraft</li>
+        <li>Ark survival Evolved</li>
+        <li>Dont Starve</li>
+        <h2>Ver mais...</h2>
+      </ul>
+      <ul class="list">
+        <li>
+          <h1>Roguelike</h1>
+        </li>
+        <li>Dead Cells</li>
+        <li>The Binding of Isaac</li>
+        <li>SIFU</li>
+        <h2>Ver mais...</h2>
+      </ul>
+      <ul class="list">
+        <li>
+          <h1>MMORPG</h1>
+        </li>
+        <li>Albion Online</li>
+        <li>World of Warcraft</li>
+        <li>Lost ark</li>
+        <h2>Ver mais...</h2>
+      </ul>
+      </ul>
+    </div>
+  </main>
+  <form>
+    <fieldset>
+      <legend>
+      Fale conosco
+      </legend>
+      <div id="form">
+        <label for="Idnome"> Digite seu nome:</label><input type="text" id="Idnome" />
+        <br />
+        <br />
+        <label for="Idemail"> Digite seu email:</label><input type="email" id="Idemail"/>
+        <br />
+        <br />
+        <label for="textarea"> Deixe seu recado:</label><div class="container">
+          <textarea id="textarea" maxlength="350" placeholder="Digite algo..."></textarea>
+         <div class="char-count">
+           <span id="count">0</span> caracteres (max. 350)
+         </div>
+         <div id="message" class="message"></div>
+      </div>
+        <br />
+        <br />
+        <input type="submit" />
+        <input type="reset" />
+      </div>
+
+    </fieldset>
+    <footer id="texto">
+      <strong>
+        &copy;Todos os direitos reservados
+      </strong>
+    </footer>
+  </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('textarea');
+    const countSpan = document.getElementById('count');
+    const messageDiv = document.getElementById('message');
+    const maxLength = textarea.maxLength;
+
+    // Função para atualizar o contador de caracteres e a mensagem
+    function updateCharacterCount() {
+        const charCount = textarea.value.length;
+        countSpan.textContent = charCount;
+
+        // Adiciona ou remove a classe 'red' com base no limite de caracteres
+        if (charCount >= maxLength) {
+            countSpan.classList.add('red');
+            messageDiv.textContent = 'Você atingiu o limite máximo de caracteres!';
+            messageDiv.style.display = 'block'; // Exibe a mensagem
+        } else {
+            countSpan.classList.remove('red');
+            messageDiv.textContent = '';
+            messageDiv.style.display = 'none'; // Oculta a mensagem
+        }
+    }
+
+    // Adicionar um evento de input ao textarea
+    textarea.addEventListener('input', updateCharacterCount);
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const textElement = document.getElementById('text');
+    const increaseButton = document.getElementById('increase-font');
+    const decreaseButton = document.getElementById('decrease-font');
+    
+    let fontSize = 16; // Tamanho inicial da fonte em pixels
+    const minFontSize = 10; // Tamanho mínimo da fonte em pixels
+    const maxFontSize = 40; // Tamanho máximo da fonte em pixels
+
+    function updateFontSize() {
+        textElement.style.fontSize = `${fontSize}px`;
+    }
+
+    increaseButton.addEventListener('click', () => {
+        if (fontSize < maxFontSize) {
+            fontSize += 2; // Aumenta o tamanho da fonte em 2 pixels
+            updateFontSize();
+        }
+    });
+
+    decreaseButton.addEventListener('click', () => {
+        if (fontSize > minFontSize) {
+            fontSize -= 2; // Diminui o tamanho da fonte em 2 pixels
+            updateFontSize();
+        }
+    });
+
+    // Define o tamanho inicial da fonte
+    updateFontSize();
+});
+
+  </script>
+</body>
+</html>

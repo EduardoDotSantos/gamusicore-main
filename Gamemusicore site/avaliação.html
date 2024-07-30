@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário Cadastro</title>
+  <link rel="icon" type="image/x-icon" href="images/Favicon.ico" />
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .error-message {
+        color: red;
+        font-size: 0.8em;
+    }
+    .success-message {
+        color: green;
+        font-size: 0.8em;
+    }
+</style>
+</head>
+
+<body>
+  <header>
+    <div id="texto">
+      <h1>Gamusicore</h1>
+    </div>
+  </header>
+  <nav class="pesquisa">
+    <a href="index.html" class="pesquisa">
+      <li class="butao">
+        Página Inicial
+      </li>
+    </a>
+    <br />
+    <a href="./galeria.html" class="pesquisa" rel="prev">
+      <li class="butao">
+        Galeria
+      </li>
+    </a>
+    <br />
+    <a href="./avaliação.html" class="pesquisa" id="current">
+      <li class="butao">
+        Cadastre-se
+      </li>
+    </a>
+  </nav>
+  <br />
+  <br />
+  <br />
+  <main>
+    <form id="registrationForm">
+      <br/>
+      <div>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" maxlength="20"/>
+    </div>
+      <ul id="requirements">
+        <li id="min-length">Mínimo de 8 caracteres / maximo de 20 caracteres</li>
+        <li id="uppercase">Ao menos uma letra maiúscula</li>
+        <li id="number">Ao menos um número</li>
+    </ul>
+      <br/><br/>
+    <div>
+      <label for="confirmPassword">Confirme a Senha:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" maxlength="20"/>
+    </div>
+      <br/><br/>
+      <label for="age">Idade:</label>
+      <input type="range" id="age" name="age" min="1" max="100" step="1" value="18" />
+      <span id="ageValue">18</span> anos
+      <br/><br/>
+      <label for="state">Selecione um estado do Sudeste:</label>
+      <select id="state" name="state" onchange="populateCities()">
+        <option value="">Selecione um estado</option>
+        <option value="SP">São Paulo</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="ES">Espírito Santo</option>
+      </select>
+      <br/><br/>
+      <label for="city">Selecione uma cidade:</label>
+      <select id="city" name="city" disabled>
+        <option value="">Selecione um estado primeiro</option>
+      </select>
+      <br/><br/>
+      <span id="errorMessage" class="error-message"></span>
+      <span id="successMessage" class="success-message"></span>
+      <br/><br/>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <script src="script.js"></script>
+  </main>
+
+  <br />
+  <br />
+  <h3 style="color: #ffffff; text-align: center;">Sobre nós</h3>
+  <p>
+    O site Gamusicore começou a muito tempo atras, com um jovem apaixonado pelas trilhas sonoras dos jogos, vindo a
+    ouvi-las diariamente e excessivamente,
+    porém havia uma única coisa que o incomodava, ele não tinha um lugar além do youtube para escolher seus jogos e
+    ouvir eles, tendo que procurar em meio aos sites normais
+    que continham incontáveis músicas que atrapalhavam na sua busca.
+  </p>
+  <br />
+  <p>
+    Além da paixão pelas músicas dos jogos, ele também era um grande fâ dos jogos em si, tendo grande interesse em como
+    são feitos, o que o levou até a programação.
+    Após alguns meses estudando ele então pensou em juntar essas duas coisas e criar o seu tão adorado Gamusicore.
+  </p>
+  <p>
+    O site Gamusicore foi criado completamente por paixão, e não possui interesses lucrativos como seus principais, mas
+    sim o agrado dos ouvintes e fâs das musicas OST,
+    por isso seremos sempre muito gratos por suas avaliações em relação ao nosso site.
+  </p>
+  <footer id="texto">
+    <strong>
+      &copy;Todos os direitos reservados
+    </strong>
+  </footer>
+</body>
+
+</html>
